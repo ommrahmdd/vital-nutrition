@@ -1,0 +1,10 @@
+.ant-select-selection-item {
+  font-weight: bold !important;
+}
+.ant-select-item-option-active {
+  background-color: #68d34b41 !important;
+}
+
+.ant-select-item-option-selected {
+  background-color: #68d34b94 !important;
+}

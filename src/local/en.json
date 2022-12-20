@@ -1,0 +1,50 @@
+{
+  "nav": [
+    {
+      "title": "Home",
+      "to": "/"
+    },
+    {
+      "title": "Products",
+      "to": "products"
+    },
+    {
+      "title": "About us",
+      "to": "about"
+    },
+    {
+      "title": "News",
+      "to": "news"
+    },
+    {
+      "title": "Our partners",
+      "to": "partners"
+    },
+    {
+      "title": "Contact us",
+      "to": "contact"
+    }
+  ],
+  "header": {
+    "title": "Welcome to vital nutrition",
+    "text": "Health and vitality for the whole family",
+    "btn": "Learn More"
+  },
+  "home": {
+    "videoSection": {
+      "title": "We’re very attached to..."
+    },
+    "featuresSection": {
+      "vitalox": {
+        "products": "Products",
+        "title": "Vitalox",
+        "text": "The path to healthy skin is different for everyone. No matter what social media shows you, it takes commitment to your routine, even in the face of set backs. We're here to make sure you stay the course with the right experts and products for you."
+      },
+      "Loxymune": {
+        "products": "Products",
+        "title": "Loxymune",
+        "text": "The path to healthy skin is different for everyone. No matter what social media shows you, it takes commitment to your routine, even in the face of set backs. We're here to make sure you stay the course with the right experts and products for you."
+      }
+    }
+  }
+}
