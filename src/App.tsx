@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import "./i18next";
 import "./App.css";
 import Nav from "./layouts/nav/Nav";
+import Footer from "./layouts/footer/Footer";
 
 function App() {
   let { i18n } = useTranslation();
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

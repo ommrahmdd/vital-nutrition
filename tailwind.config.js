@@ -13,6 +13,7 @@ module.exports = {
         orangeColorLight: "#FFA438",
         greyColor: "#343A40",
         greyColorLight: "#6C757D",
+        greyColorLighter: "#F8F9FA",
       },
     },
   },

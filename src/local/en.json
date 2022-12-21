@@ -30,6 +30,37 @@
     "text": "Health and vitality for the whole family",
     "btn": "Learn More"
   },
+  "footer": {
+    "footerHeader": {
+      "title": "Sign Up for Our Newsletter",
+      "midTitle": "Stay up to date",
+      "input": "Your Email Address",
+      "subscribe": "Subscribe"
+    },
+    "footerElements": [
+      {
+        "text": "home",
+        "to": "/"
+      },
+      {
+        "text": "Abouts us",
+        "to": "/about"
+      },
+      {
+        "text": "products",
+        "to": "/products"
+      },
+      {
+        "text": "news",
+        "to": "/news"
+      },
+      {
+        "text": "contact us",
+        "to": "/contact"
+      }
+    ],
+    "copyrights": "All Rights Reserved"
+  },
   "home": {
     "videoSection": {
       "title": "We’re very attached to..."
