@@ -1,0 +1,27 @@
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #69d34b;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1rem;
+  color: white;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}

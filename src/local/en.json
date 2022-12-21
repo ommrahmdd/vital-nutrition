@@ -45,6 +45,37 @@
         "title": "Loxymune",
         "text": "The path to healthy skin is different for everyone. No matter what social media shows you, it takes commitment to your routine, even in the face of set backs. We're here to make sure you stay the course with the right experts and products for you."
       }
+    },
+    "products": {
+      "header": {
+        "mainTitle": "Featured Products",
+        "smallTitle": "Products",
+        "midTitle": "Check our latest products",
+        "viewMore": "shop all products"
+      }
+    },
+    "story": {
+      "smallTitle": "Our Story",
+      "title": "Supplements you can trust",
+      "text": "Our line of supplements and vitamins consists of wellness and life style products that cover various areas such as Cardiovascular, Digestive, Brain & Neuro, Beauty & Skin Health, Bone & Joint Support and Immune support.",
+      "button": "Learn More"
+    },
+    "Journeys": {
+      "smallTitle": "Reviews",
+      "title": "Journeys Aren't linear",
+      "text": "The path to healthy skin is different for everyone. No matter what social media shows you, it takes commitment to your routine, even in the face of set backs. We're here to make sure you stay the course with the right experts and products for you."
+    },
+    "news": {
+      "news": "News",
+      "title": "Latest News",
+      "midTitle": "This is where you'll find your responses, highlights, mentions, and new followers",
+      "newsTypes": ["Announcements", "Blog", "community"],
+      "newsInfo": {
+        "title": "Launching soon in Egypt",
+        "text": "PharmaVital, as a part of its geographic expansion will be available soon in the Egyptian market with few of its distinguished food supplement products. The Egyptian market is very welcoming for high quality products that are furnished by PharmaVital as German products.",
+        "userName": "Admin",
+        "date": "January 16, 2022"
+      }
     }
   }
 }
