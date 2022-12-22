@@ -108,5 +108,41 @@
         "date": "January 16, 2022"
       }
     }
+  },
+  "aboutPage": {
+    "header": {
+      "title": "Who is vital nutrition",
+      "text": "We’ve always believed that the best version of ourselves starts with the mind. That’s why we’ve dedicated the past 5 years to create great-tasting products that conveniently and effectively get us in the right state at the right time."
+    },
+    "historySection": {
+      "smallTitle": "history",
+      "title": "Vital nutrition",
+      "leftSide": "PharmaVital FZ-LLC is the result of years of customer service experience working for pharmacies, distribution firms, and hospitals in several countries as a provider of trusted brands of food supplements with a broad range of vitamins and minerals. We’re happy to be able to offer such a broad set of quality-assured trusted brands.",
+      "rigtSide": "Our company’s reputation is built on strict quality control and demanding manufacturing practices. We strive to give the highest possible quality and are motivated by our desire to serve and improve our customers’ experiences. As a new, ambitious organization, our mission is to bring high-quality items to the market at reasonable prices."
+    },
+    "philsoSection": {
+      "smallTitle": "Our philosophy",
+      "title": "Vital nutrition",
+      "leftSide": "To get the daily recommended vitamins and minerals, eat fruits, vegetables, animal protein, and fish. Because not everyone in our society has the ability to constantly adhere to guidelines, whether due to time constraints or other circumstances, vitamin and mineral supplements can fill the gap here. ",
+      "rightSide": "PharmaVital FZ–LLC has undertaken the task of providing high-quality supplements at reasonable prices. High-quality supplements for a joyful life for the entire family. Having a healthy lifestyle begins with eating healthy foods, and eating healthy foods begins with a healthy environment. Every day, we make better health more accessible with our products."
+    },
+    "featuresSection": {
+      "title": "With over 30 million pieces sold, we’re on a mission.",
+      "midTitle": "A mission to focus on the three things most important to us.",
+      "features": [
+        {
+          "title": "innovation",
+          "text": "We are constantly improving. We have gone through close to 30 iterations, modifying formulations, ingredients and textures to ensure we are putting out the best product possible. "
+        },
+        {
+          "title": "Quality Ingredients",
+          "text": "We will continue to only source sustainable, high-quality ingredients to be made in our FDA-approved labs. "
+        },
+        {
+          "title": "Giving Back",
+          "text": "We give back 1% of everything - whether it’s time for the community, profits for a cause or product to non-profits."
+        }
+      ]
+    }
   }
 }

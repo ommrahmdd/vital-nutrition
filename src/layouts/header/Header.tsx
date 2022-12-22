@@ -12,7 +12,7 @@ export default function Header() {
       <img
         src={headerBg}
         alt="header background"
-        className="absolute top-0 left-0 w-full h-full object-cover blur-2xl -z-10"
+        className="absolute top-0 left-0 w-full h-full object-cover blur-sm -z-10"
       />
       <Container classNames="h-full">
         <div className="h-full grid grid-cols-1 lg:grid-cols-2">

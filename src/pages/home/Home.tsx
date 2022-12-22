@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -16,7 +16,9 @@ import "./home.css";
 export default function Home() {
   let { t, i18n } = useTranslation();
   let { products, news } = useHome();
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       {/* Header */}
