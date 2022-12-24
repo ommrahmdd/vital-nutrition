@@ -41,12 +41,12 @@ export default function Footer() {
               />
               <input
                 type="text"
-                className="py-2 px-14 w-[15rem] rounded-md outline-none md:w-[17rem]"
+                className="py-2 px-14 w-[15rem] rounded-md outline-none text-xs lg:text-sm md:w-[17rem]"
               />
             </div>
             <button
-              className={`py-2 px-5 text-white bg-orangeColor -ml-3 z-10 font-light rounded-lg ${
-                i18n.language === "en" ? "-ml-3" : "-mr-3"
+              className={`py-2 px-4 text-white bg-orangeColor -ml-3 z-10 font-light rounded-lg  text-xs lg:text-sm ${
+                i18n.language === "en" ? "-ml-6" : "-mr-6"
               }`}
             >
               {t("footer.footerHeader.subscribe")}

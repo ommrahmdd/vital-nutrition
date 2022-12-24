@@ -10,7 +10,9 @@ export default function Nav() {
   const { options, handleSelectChange, activeLink, handleActiveLink } =
     useNav();
   return (
-    <div className="bg-white py-5 sticky top-0 left-0 w-full  z-50 shadow-xl">
+    <div
+      className={`bg-white py-5 sticky top-0 left-0 w-full  z-50 shadow-lg `}
+    >
       <Container>
         <nav className="flex items-center justify-between">
           {/*STYLE: Logo */}

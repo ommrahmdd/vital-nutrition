@@ -2,12 +2,12 @@ import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import aboutBg from "./../../assets/imgs/about/bg.png";
-import Container from "../../components/UI/Container";
+import { useAbout } from "./AboutVm";
 import AboutTxtSection from "./AboutTxtSection";
+import Container from "../../components/UI/Container";
+import aboutBg from "./../../assets/imgs/about/bg.png";
 import textSectionImage from "./../../assets/imgs/about/01.png";
 import historyImg from "./../../assets/imgs/about/02.png";
-import { useAbout } from "./AboutVm";
 
 export default function About() {
   const { t } = useTranslation();
@@ -19,7 +19,13 @@ export default function About() {
     <div>
       {/* Header */}
       <header className="h-[80vh] relative">
-        <LazyLoadImage src={aboutBg} className="w-full h-full " effect="blur" />
+        <div className="w-full h-full">
+          <LazyLoadImage
+            src={aboutBg}
+            className="w-[100%] h-[80vh] object-cover"
+            effect="blur"
+          />
+        </div>
         <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center">
           <h3 className="text-white text-3xl font-semibold lg:text-5xl">
             {t("aboutPage.header.title")}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Container from "../../components/UI/Container";
 import headerBg from "./../../assets/imgs/home/headerImg2.jpg";
 import headerImg from "./../../assets/imgs/home/headerImg.png";
@@ -29,9 +31,10 @@ export default function Header() {
             />
           </div>
           <div className="order-1 flex items-center justify-center lg:order-2">
-            <img
+            <LazyLoadImage
               src={headerImg}
-              alt="header img"
+              alt="headerImg"
+              effect="blur"
               className="w-[20rem] h-[20rem] object-contain md:w-[25rem] md:h-[25rem] lg:w-[30rem] lg:h-[30rem]"
             />
           </div>

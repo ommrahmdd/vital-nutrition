@@ -144,5 +144,30 @@
         }
       ]
     }
+  },
+  "contactPage": {
+    "formFields": {
+      "fName": "First name",
+      "lName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Your message",
+      "submit": "Get in touch",
+      "privacy": "By submitting this orm you are agreeing to our Privacy policy."
+    },
+    "formFieldsErrors": {
+      "fName": "First Name is Required",
+      "lName": "Last Name is required",
+      "email": "Email is required",
+      "phone": "Phone is required",
+      "message": "message is required"
+    },
+    "location": {
+      "contact": "Contact us",
+      "title": "Looking to learn more? chat with our team.",
+      "midTitle": "You can call us during working hours or visit our office. We will respond to your emails within 24 hours or soonest possible. Love to hear from you! ",
+      "location": "Rakez Amenity Center - Al Hamra Industrial Zone-FZ T1-4F-22 (United Arab Emirates)",
+      "email": "info@pharmavital.health"
+    }
   }
 }
