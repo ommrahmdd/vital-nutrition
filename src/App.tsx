@@ -9,6 +9,7 @@ import Loader from "./components/UI/loader";
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
+const Partners = lazy(() => import("./pages/partners/Partners"));
 
 function App() {
   let { i18n } = useTranslation();
@@ -22,6 +23,7 @@ function App() {
         <Router>
           <Nav />
           <Routes>
+            <Route path="/partners" element={<Partners />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />

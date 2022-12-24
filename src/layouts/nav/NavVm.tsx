@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 export default function NavVm() {
   const { i18n } = useTranslation();
-  const [activeLink, setActiveLink] = useState(0);
+  const [activeLink, setActiveLink] = useState<number>(0);
+  const [scrollValue, setScrollValue] = useState<number>(0);
   const options = [
     {
       value: "en",
@@ -20,5 +21,15 @@ export default function NavVm() {
   let handleActiveLink = (index: number) => {
     setActiveLink(index);
   };
-  return { options, activeLink, handleSelectChange, handleActiveLink };
+  let handleScroll = () => {
+    setScrollValue(window.scrollY);
+  };
+  return {
+    options,
+    activeLink,
+    handleSelectChange,
+    handleActiveLink,
+    scrollValue,
+    handleScroll,
+  };
 }

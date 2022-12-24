@@ -22,7 +22,7 @@ export default function Contact() {
           {/* Left */}
           <div className="">
             {/* Text */}
-            <div className="flex flex-col items-start gap-y-3">
+            <div className="flex flex-col items-start gap-y-8">
               <p className="text-greenColor font-semibold text-lg tracking-wider">
                 {t("contactPage.location.contact")}
               </p>

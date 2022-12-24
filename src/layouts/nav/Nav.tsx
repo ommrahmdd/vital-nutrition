@@ -5,13 +5,31 @@ import Container from "../../components/UI/Container";
 import useNav from "./NavVm";
 import logoImg from "./../../assets/imgs/home/logo.png";
 import "./nav.css";
+import { useEffect } from "react";
 export default function Nav() {
   const { t, i18n } = useTranslation();
-  const { options, handleSelectChange, activeLink, handleActiveLink } =
-    useNav();
+  const {
+    options,
+    handleSelectChange,
+    activeLink,
+    handleActiveLink,
+    scrollValue,
+    handleScroll,
+  } = useNav();
+
+  let scrollEvent = window.addEventListener("scroll", () => {
+    handleScroll();
+  });
+
+  useEffect(() => {
+    return scrollEvent;
+  });
+
   return (
     <div
-      className={`bg-white py-5 sticky top-0 left-0 w-full  z-50 shadow-lg `}
+      className={`bg-white py-10 sticky top-0 left-0 w-full  z-50 transition-all ease-in-out duration-300 ${
+        scrollValue > 100 ? "shadow-sm py-5" : null
+      } `}
     >
       <Container>
         <nav className="flex items-center justify-between">
