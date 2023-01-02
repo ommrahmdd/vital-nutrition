@@ -3,9 +3,8 @@
 
 
 ## Demo
-!!! PLEASE DONT TRY TO MODIFY ANY THING !!!
 
-[Live](https://vital-nutrition-dashboard.vercel.app/)
+[Live](https://vital-nutrition.vercel.app/)
 ## Acknowledgements
 Template Provided by Sayed el Markby UI/UX designer
 
