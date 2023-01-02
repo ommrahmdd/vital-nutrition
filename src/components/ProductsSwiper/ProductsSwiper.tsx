@@ -50,6 +50,7 @@ export default function ProductsSwiper(props: IProductsSwiper) {
                 src={product.img}
                 alt="productImg"
                 className="h-[19rem] object-contain"
+                key={index}
               />
               <div className="text-center py-5 space-y-1">
                 <h3 className="uppercase">{product.title}</h3>

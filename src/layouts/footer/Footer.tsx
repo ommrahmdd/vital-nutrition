@@ -13,7 +13,7 @@ import logoImg from "./../../assets/imgs/home/logo.png";
 export default function Footer() {
   const { t, i18n } = useTranslation();
   return (
-    <footer className="py-5">
+    <footer className="py-5 mt-10">
       {/* Header */}
       <div className=" bg-greenColor grid grid-cols-1 md:grid-cols-2">
         {/* left */}

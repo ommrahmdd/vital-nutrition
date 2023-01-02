@@ -1,7 +1,9 @@
 import React, { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
+//
 import useHome from "./HomeVm";
 import Container from "../../components/UI/Container";
 import Header from "../../layouts/header/Header";
@@ -9,16 +11,21 @@ import ProductsSwiper from "../../components/ProductsSwiper/ProductsSwiper";
 import { SBtn } from "../../components/UI/Buttons";
 import SectionText from "../../components/sectionText/SectionText";
 import SectionHeader from "../../components/sectionHead/SectionHeader";
+// Imgs
 import vitaloxImg from "./../../assets/imgs/home/vitalox.png";
 import loxymuneImg from "./../../assets/imgs/home/loxymune.png";
 import storyImg from "./../../assets/imgs/home/supple.png";
+import thumb01 from "./../../assets/imgs/home/thumbnail001.png";
+// Css
 import "./home.css";
+
 export default function Home() {
   let { t, i18n } = useTranslation();
   let { products, news } = useHome();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div>
       {/* Header */}
@@ -29,14 +36,15 @@ export default function Home() {
           <p className="text-center font-semibold text-2xl">
             {t("home.videoSection.title")}
           </p>
-          <div className="mt-9 flex items-center justify-center">
-            <iframe
-              width="850"
-              height="450"
-              src="https://www.youtube.com/embed/35VNTu9SUc8"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+          <div className="mt-9 flex items-center justify-center relative">
+            <img
+              src={thumb01}
+              alt="thumbImg01"
+              className="w-[30rem] h-[20rem] object-contain lg:w-[70rem] lg:h-[35rem]"
+            />
+            <a href="https://www.youtube.com/embed/35VNTu9SUc8" target="_blank">
+              <FaPlay className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl z-20 text-greenColor lg:text-4xl cursor-pointer hover:opacity-40" />
+            </a>
           </div>
         </Container>
       </section>
@@ -210,6 +218,7 @@ export default function Home() {
               <Link
                 to="/"
                 className="transition-all duration-300 ease-in-out cursor-pointer hover:opacity-60 "
+                key={index}
               >
                 <div
                   className="overflow-hidden rounded-md flex flex-col items-start bg-white shadow-md"

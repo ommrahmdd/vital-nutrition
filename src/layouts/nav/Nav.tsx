@@ -15,14 +15,16 @@ export default function Nav() {
     handleActiveLink,
     scrollValue,
     handleScroll,
+    themeOptions,
+    handleThemeChange,
   } = useNav();
 
-  let scrollEvent = window.addEventListener("scroll", () => {
-    handleScroll();
-  });
+  // let scrollEvent = window.addEventListener("scroll", () => {
+  //   handleScroll();
+  // });
 
   useEffect(() => {
-    return scrollEvent;
+    // return scrollEvent;
   });
 
   return (
@@ -50,11 +52,17 @@ export default function Nav() {
               ).map((item, index) => (
                 <li
                   key={index}
-                  className={`transition-all duration-300 ease-in-out hover:text-orangeColor ${
+                  className={`transition-all duration-300 ease-in-out text-greyColor hover:text-orangeColor ${
                     activeLink === index && "text-orangeColorLight"
                   }`}
                 >
-                  <Link to={item.to} onClick={() => handleActiveLink(index)}>
+                  <Link
+                    to={item.to}
+                    onClick={() => handleActiveLink(index)}
+                    className={`transition-all duration-300 ease-in-out text-greyColor hover:text-orangeColor ${
+                      activeLink === index && "text-orangeColorLight"
+                    }`}
+                  >
                     {item.title}
                   </Link>
                 </li>
@@ -70,6 +78,13 @@ export default function Nav() {
                 i18n.language === "ar" ? "font-cairo" : ""
               }`}
             />
+            {/* Theme */}
+            {/* <Select
+              options={themeOptions}
+              bordered={false}
+              onChange={handleThemeChange}
+              className="min-w-[5rem]"
+            /> */}
           </div>
         </nav>
       </Container>

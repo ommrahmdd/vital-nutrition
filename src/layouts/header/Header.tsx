@@ -4,9 +4,9 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Container from "../../components/UI/Container";
+import { MainBtn } from "../../components/UI/Buttons";
 import headerBg from "./../../assets/imgs/home/headerImg2.jpg";
 import headerImg from "./../../assets/imgs/home/headerImg.png";
-import { MainBtn } from "../../components/UI/Buttons";
 export default function Header() {
   let { t, i18n } = useTranslation();
   return (
@@ -14,12 +14,16 @@ export default function Header() {
       <img
         src={headerBg}
         alt="header background"
-        className="absolute top-0 left-0 w-full h-full object-cover blur-sm -z-10"
+        className="absolute top-0 left-0 w-full h-full object-cover blur-sm z-0"
       />
-      <Container classNames="h-full">
+      <Container classNames="h-full relative z-20">
         <div className="h-full grid grid-cols-1 lg:grid-cols-2">
           <div className="order-2 flex flex-col items-start justify-center gap-y-3 lg:gap-y-6 lg:order-1">
-            <h3 className="text-4xl font-bold text-greenColorLight  md:text-5xl lg:max-w-xl lg:leading-[4.5rem] lg:text-6xl ">
+            <h3
+              className={`text-4xl font-bold text-greenColorLight  md:text-5xl lg:max-w-xl lg:leading-[4.5rem] lg:text-6xl ${
+                i18n.language === "ar" && "font-cairo"
+              }`}
+            >
               {t("header.title")}
             </h3>
             <p className="text-xl font-semibold text-black lg:text-2xl">

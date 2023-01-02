@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         cairo: ["Cairo"],
+        poppins: ["Poppins"],
       },
       colors: {
         greenColor: "#60BB46",

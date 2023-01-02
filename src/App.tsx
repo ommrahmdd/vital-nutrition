@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Nav from "./layouts/nav/Nav";
@@ -10,14 +10,15 @@ const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Partners = lazy(() => import("./pages/partners/Partners"));
+const News = lazy(() => import("./pages/news/News"));
 
 function App() {
   let { i18n } = useTranslation();
   document.body.dir = i18n.dir();
+
   return (
     <div
-      // dir={`${i18n.language === "en" ? "ltr" : "rtl"}`}
-      className={`${i18n.language === "ar" && "font-cairo"}`}
+      className={`${i18n.language === "ar" ? "font-cairo" : "font-poppins"} `}
     >
       <Suspense fallback={<Loader />}>
         <Router>
@@ -26,6 +27,7 @@ function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/news" element={<News />} />
             <Route path="/" element={<Home />} />
           </Routes>
           <Footer />

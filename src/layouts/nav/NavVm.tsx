@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { CiDark } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
 export default function NavVm() {
   const { i18n } = useTranslation();
   const [activeLink, setActiveLink] = useState<number>(0);
@@ -14,6 +16,18 @@ export default function NavVm() {
       label: "العربية",
     },
   ];
+  const themeOptions = [
+    {
+      value: "light",
+      label: <CiDark className="flex items-center justify-center text-2xl" />,
+    },
+    {
+      value: "dark",
+      label: (
+        <MdDarkMode className="flex items-center justify-center text-2xl text-slate-900" />
+      ),
+    },
+  ];
   let handleSelectChange = (value: string) => {
     if (i18n.language === "en") i18n.changeLanguage("ar");
     else i18n.changeLanguage("en");
@@ -24,6 +38,9 @@ export default function NavVm() {
   let handleScroll = () => {
     setScrollValue(window.scrollY);
   };
+  let handleThemeChange = (value: string) => {
+    localStorage.setItem("darkMode", value);
+  };
   return {
     options,
     activeLink,
@@ -31,5 +48,7 @@ export default function NavVm() {
     handleActiveLink,
     scrollValue,
     handleScroll,
+    themeOptions,
+    handleThemeChange,
   };
 }

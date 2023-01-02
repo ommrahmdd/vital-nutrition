@@ -173,5 +173,8 @@
   "partnersPage": {
     "smallTitle": "Our partners",
     "title": "Trusted by Hundreds Of Big Brands Arround The World"
+  },
+  "newsPage": {
+    "title": "Our News"
   }
 }
