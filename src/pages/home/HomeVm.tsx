@@ -5,6 +5,8 @@ import img04 from "./../../assets/imgs/products/04.png";
 import newsHeader from "./../../assets/imgs/home/newsHeader.png";
 import newsUser from "./../../assets/imgs/home/newsUser.png";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { INew } from "../../models/INew";
 export default function HomeVm() {
   const { t } = useTranslation();
   const products = [
@@ -68,8 +70,14 @@ export default function HomeVm() {
       date: t("home.news.newsInfo.date"),
     },
   ];
+  const [_news, setNews] = useState<INew[]>([]);
+  const updateNews = (data: INew[] | any[]) => {
+    setNews(data.slice(0, 3));
+  };
   return {
     products,
     news,
+    _news,
+    updateNews,
   };
 }

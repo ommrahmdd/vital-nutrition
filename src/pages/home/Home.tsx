@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa";
@@ -18,12 +18,19 @@ import storyImg from "./../../assets/imgs/home/supple.png";
 import thumb01 from "./../../assets/imgs/home/thumbnail001.png";
 // Css
 import "./home.css";
+import { getNews } from "../../services/news";
+import HomeNewCard from "../../components/HomeNewCard/HomeNewCard";
 
 export default function Home() {
   let { t, i18n } = useTranslation();
-  let { products, news } = useHome();
+  let { products, news, _news, updateNews } = useHome();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    getNews().then((data) => {
+      updateNews(data);
+    });
   }, []);
 
   return (
@@ -213,48 +220,40 @@ export default function Home() {
         />
         {/* News */}
         <Container>
-          <div className="my-10 grid gap-8 grid-cols-1 lg:grid-cols-3">
-            {news.map((_new, index) => (
-              <Link
-                to="/"
-                className="transition-all duration-300 ease-in-out cursor-pointer hover:opacity-60 "
-                key={index}
-              >
-                <div
-                  className="overflow-hidden rounded-md flex flex-col items-start bg-white shadow-md"
+          {_news.length > 0 ? (
+            <div className="my-10 grid gap-8 grid-cols-1 lg:grid-cols-3">
+              {_news.map((_new, index) => (
+                <Link
+                  to={_new._id!}
+                  className="transition-all duration-300 ease-in-out cursor-pointer hover:opacity-60 "
                   key={index}
                 >
-                  <img src={_new.img} alt="newImg" className="w-[100%]" />
-                  <div className="py-5 px-3 space-y-4">
-                    <p className="text-greenColor font-semibold">
-                      {(_new.type as Array<string>)[index]}
-                    </p>
-                    <h3 className="text-2xl font-semibold lg:max-w-lg">
-                      {_new.title}
-                    </h3>
-                    <p className="text-sm leading-6 text-greyColorLight lg:max-w-lg">
-                      {_new.text}
-                    </p>
-                    <div className="flex items-center gap-x-3">
-                      <img
-                        src={_new.userImg}
-                        alt="userImage"
-                        className="w-14"
+                  <div
+                    className="overflow-hidden rounded-md flex flex-col items-start bg-white shadow-md"
+                    key={index}
+                  >
+                    <img src={_new.img} alt="newImg" className="w-[100%]" />
+                    {/* Ar & En Text */}
+                    {i18n.language === "en" ? (
+                      <HomeNewCard
+                        title={_new.en.title}
+                        type={_new.en.type}
+                        details={_new.en.midTitle}
                       />
-                      <div className="flex flex-col items-start">
-                        <p className="text-sm text-orangeColor font-bold ">
-                          {_new.userName}
-                        </p>
-                        <p className="text-sm text-greyColorLight">
-                          {_new.date}
-                        </p>
-                      </div>
-                    </div>
+                    ) : (
+                      <HomeNewCard
+                        title={_new.ar.title}
+                        type={_new.ar.type}
+                        details={_new.ar.midTitle}
+                      />
+                    )}
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            ""
+          )}
         </Container>
       </section>
       {/* Top Button */}

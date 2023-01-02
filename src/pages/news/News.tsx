@@ -1,22 +1,28 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Grid, Placeholder, Segment } from "semantic-ui-react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import PageHeader from "../../components/pageHeader/PageHeader";
 import Container from "../../components/UI/Container";
 import { getNews } from "../../services/news";
 import { useNews } from "./NewsVm";
-import type { INew } from "../../models/INew";
 import { CardNewAr, CardNewEn } from "../../components/cardNew/CardNew";
-import { Grid, Placeholder, Segment } from "semantic-ui-react";
+import type { INew } from "../../models/INew";
 
 export default function News() {
   const { t, i18n } = useTranslation();
-  const { news, handleUpdateNews, placeholderArr } = useNews();
+  const {
+    news,
+    handleUpdateNews,
+    placeholderArr,
+    newsSwiper,
+    activeType,
+    handleActiveType,
+  } = useNews();
 
   useEffect(() => {
     getNews().then((data: INew[] | any) => {
-      setTimeout(() => {
-        handleUpdateNews(data);
-      }, 5000);
+      handleUpdateNews(data);
     });
   }, []);
   return (
@@ -26,6 +32,34 @@ export default function News() {
       <Container>
         <div className="">
           {/*TODO: Types of news */}
+          <div className="my-10 w-full md:2/3 lg:w-1/3">
+            {/* Swipper */}
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 3,
+                },
+                720: {
+                  slidesPerView: 4,
+                },
+              }}
+            >
+              {newsSwiper.map((_newSwiper, index) => (
+                <SwiperSlide key={index} className=" ">
+                  <button
+                    className={`capitalize cursor-pointer p-1 px-5 rounded-md transition-all duration-300 ease-in-out ${
+                      index === activeType && "bg-greenColor text-white  "
+                    }`}
+                    onClick={() => handleActiveType(index)}
+                  >
+                    {_newSwiper}
+                  </button>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
           {/* ---------------------------- */}
           {/* News */}
           <div className="">
