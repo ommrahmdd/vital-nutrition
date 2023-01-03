@@ -4,7 +4,8 @@ import { getNews } from "../../services/news";
 
 export function useNews() {
   const [news, setNews] = useState<INew[]>([]);
-  const newsSwiper = ["all", "blog", "annoncement", "community"];
+  const newsSwiper_en = ["all news", "blog", "annoncement", "community"];
+  const newsSwiper_ar = ["جميع الاخبار", "المدونة", "اعلان", "اجتماعي"];
   const [activeType, setActiveType] = useState<number>(0);
   const placeholderArr = new Array(10).fill(0);
   const handleUpdateNews = (data: INew[]) => {
@@ -48,7 +49,8 @@ export function useNews() {
     news,
     handleUpdateNews,
     placeholderArr,
-    newsSwiper,
+    newsSwiper_ar,
+    newsSwiper_en,
     handleActiveType,
     activeType,
   };

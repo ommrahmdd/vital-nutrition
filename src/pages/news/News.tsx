@@ -15,7 +15,8 @@ export default function News() {
     news,
     handleUpdateNews,
     placeholderArr,
-    newsSwiper,
+    newsSwiper_ar,
+    newsSwiper_en,
     activeType,
     handleActiveType,
   } = useNews();
@@ -36,8 +37,11 @@ export default function News() {
             {/* Swipper */}
             <Swiper
               slidesPerView={2}
-              spaceBetween={10}
+              spaceBetween={5}
               breakpoints={{
+                320: {
+                  slidesPerView: 3,
+                },
                 640: {
                   slidesPerView: 3,
                 },
@@ -46,18 +50,31 @@ export default function News() {
                 },
               }}
             >
-              {newsSwiper.map((_newSwiper, index) => (
-                <SwiperSlide key={index} className=" ">
-                  <button
-                    className={`capitalize cursor-pointer p-1 px-5 rounded-md transition-all duration-300 ease-in-out ${
-                      index === activeType && "bg-greenColor text-white  "
-                    }`}
-                    onClick={() => handleActiveType(index)}
-                  >
-                    {_newSwiper}
-                  </button>
-                </SwiperSlide>
-              ))}
+              {i18n.language === "en"
+                ? newsSwiper_en.map((_newSwiper, index) => (
+                    <SwiperSlide key={index} className=" ">
+                      <button
+                        className={`capitalize cursor-pointer p-1 px-5 rounded-md transition-all duration-300 ease-in-out ${
+                          index === activeType && "bg-greenColor text-white  "
+                        }`}
+                        onClick={() => handleActiveType(index)}
+                      >
+                        {_newSwiper}
+                      </button>
+                    </SwiperSlide>
+                  ))
+                : newsSwiper_ar.map((_newSwiper, index) => (
+                    <SwiperSlide key={index} className=" ">
+                      <button
+                        className={`capitalize cursor-pointer p-1 px-5 rounded-md transition-all duration-300 ease-in-out font-cairo ${
+                          index === activeType && "bg-greenColor text-white  "
+                        }`}
+                        onClick={() => handleActiveType(index)}
+                      >
+                        {_newSwiper}
+                      </button>
+                    </SwiperSlide>
+                  ))}
             </Swiper>
           </div>
           {/* ---------------------------- */}

@@ -26,9 +26,9 @@ export default function PageHeader({
       >
         {/* left */}
         {/* Txt */}
-        <h5 className="text-3xl font-bold text-orangeColor md:text-4xl lg:text-6xl">
+        <p className="text-3xl font-bold text-orangeColor md:text-4xl lg:text-6xl">
           {txt}
-        </h5>
+        </p>
         {/* Right */}
       </div>
     </div>

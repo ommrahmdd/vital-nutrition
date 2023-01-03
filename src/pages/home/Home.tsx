@@ -16,10 +16,10 @@ import vitaloxImg from "./../../assets/imgs/home/vitalox.png";
 import loxymuneImg from "./../../assets/imgs/home/loxymune.png";
 import storyImg from "./../../assets/imgs/home/supple.png";
 import thumb01 from "./../../assets/imgs/home/thumbnail001.png";
-// Css
-import "./home.css";
 import { getNews } from "../../services/news";
 import HomeNewCard from "../../components/HomeNewCard/HomeNewCard";
+// Css
+import "./home.css";
 
 export default function Home() {
   let { t, i18n } = useTranslation();
