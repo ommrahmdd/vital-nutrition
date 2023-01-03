@@ -6,6 +6,7 @@ import Footer from "./layouts/footer/Footer";
 import "./i18next";
 import "./App.css";
 import Loader from "./components/UI/loader";
+import NewDetails from "./pages/newsDetails/NewDetails";
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -27,7 +28,10 @@ function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/news" element={<News />} />
+            <Route path="/news">
+              <Route index element={<News />} />
+              <Route path=":id" element={<NewDetails />} />
+            </Route>
             <Route path="/" element={<Home />} />
           </Routes>
           <Footer />

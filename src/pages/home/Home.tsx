@@ -23,7 +23,7 @@ import "./home.css";
 
 export default function Home() {
   let { t, i18n } = useTranslation();
-  let { products, news, _news, updateNews } = useHome();
+  let { products, _news, updateNews } = useHome();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);

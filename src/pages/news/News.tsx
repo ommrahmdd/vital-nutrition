@@ -48,6 +48,9 @@ export default function News() {
                 720: {
                   slidesPerView: 4,
                 },
+                1080:{
+                  slidesPerView:4
+                }
               }}
             >
               {i18n.language === "en"
