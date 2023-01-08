@@ -178,6 +178,16 @@
     "title": "Our News"
   },
   "productsPage": {
-    "title": "Find your best vitamins"
+    "title": "Find your best vitamins",
+    "filterTitle": "Filter all By",
+
+    "filtersTitle": {
+      "byCategory": "Category",
+      "byGender": "Gender"
+    },
+    "filters": {
+      "byCategory": ["all", "bones", "collagen", "joint"],
+      "byGender": ["men", "women", "kids"]
+    }
   }
 }

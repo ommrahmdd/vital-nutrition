@@ -1,15 +1,47 @@
-import { Menu } from "antd";
-import React from "react";
+import { Menu, Pagination } from "antd";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Card, Grid, Placeholder } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import PageHeader from "../../components/pageHeader/PageHeader";
 import Container from "../../components/UI/Container";
 import { useProducts } from "./ProductsVm";
 import headerImg01 from "./../../assets/imgs/products/header-1.png";
 import headerImg02 from "./../../assets/imgs/products/header-2.png";
 import "./products.css";
+import {
+  getNextProducts,
+  getProducts,
+  getTotalDocs,
+} from "../../services/products";
+
 export default function Products() {
-  const { t } = useTranslation();
-  const { items } = useProducts();
+  const { t, i18n } = useTranslation();
+  const {
+    items,
+    handleUpdateProducts,
+    products,
+    // totalSize,
+    // handleUpdateTotalSize,
+    // pageSize,
+    // currentPage,
+    // paginationChange,
+  } = useProducts();
+
+  useEffect(() => {
+    // getNextProducts(1, pageSize)
+    //   .then((data) => {
+    //     handleUpdateProducts(data);
+    //     console.log(data);
+    //     return getTotalDocs();
+    //   })
+    //   .then((size) => {
+    //     handleUpdateTotalSize(size);
+    //   });
+    getProducts().then((data) => {
+      handleUpdateProducts(data);
+    });
+  }, []);
   return (
     <div>
       {/* Header */}
@@ -20,14 +52,70 @@ export default function Products() {
       />
       <Container>
         <div className="flex flex-col items-start gap-10 lg:flex-row ">
-          {/* Menu */}
-          <Menu
-            items={items}
-            className={`w-full border-none bg-white lg:w-72`}
-            mode="inline"
-          />
+          <div className="">
+            <p className="text-greenColor font-medium">
+              {t("productsPage.filterTitle")}
+            </p>
+            {/* Menu */}
+            <Menu
+              items={items}
+              className={`w-full border-none bg-white font-cairo lg:w-72`}
+              mode="inline"
+            />
+          </div>
           {/* Products */}
+          <div className="w-full grid gap-12 grid-cols-2 md:gap-16 md:grid-cols-2 lg:grid-cols-3">
+            {products.length
+              ? products.map((product, index: number) => (
+                  <Link
+                    to={product._id}
+                    className="flex flex-col items-center gap-y-5 transition-all ease-in-out duration-300 hover:opacity-40"
+                    key={index}
+                  >
+                    <img
+                      src={product.images}
+                      alt="product"
+                      className="w-3/4 h-44 object-contain  lg:h-72"
+                    />
+                    {i18n.language === "en" ? (
+                      <div className="text-center text-lg font-medium text-black">
+                        <p>{product.en.title}</p>
+                      </div>
+                    ) : (
+                      <div className="text-center text-lg font-medium text-black">
+                        <p>{product.ar.title}</p>
+                      </div>
+                    )}
+                  </Link>
+                ))
+              : new Array(12).fill(0).map((product, index) => (
+                  <Grid.Column key={index}>
+                    <Card>
+                      <Placeholder>
+                        <Placeholder.Image square />
+                      </Placeholder>
+                      <Card.Content>
+                        <Placeholder>
+                          <Placeholder.Line length="medium" />
+                          <Placeholder.Line length="medium" />
+                        </Placeholder>
+                      </Card.Content>
+                    </Card>
+                  </Grid.Column>
+                ))}
+          </div>
         </div>
+        {/* Pagination */}
+        {/* <div className="w-full flex justify-center my-8">
+          {products.products.length > 0 && totalSize! > 0 && (
+            <Pagination
+              current={currentPage}
+              total={totalSize}
+              pageSize={8}
+              onChange={paginationChange}
+            />
+          )}
+        </div> */}
       </Container>
     </div>
   );
