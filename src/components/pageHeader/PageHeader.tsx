@@ -12,7 +12,7 @@ export default function PageHeader({
   right?: string;
 }) {
   return (
-    <div className="flex justify-between items-center relative w-full h-[40vh] mb-[8rem]">
+    <div className="flex justify-between items-center relative w-full h-[50vh] mb-[8rem] px-20">
       {/* bg */}
       <img
         src={headerBg}
@@ -25,11 +25,25 @@ export default function PageHeader({
         }`}
       >
         {/* left */}
+        {left && (
+          <img
+            src={left}
+            alt="headerImg"
+            className="object-contain hidden lg:inline-block  lg:w-72 lg:h-7w-72 "
+          />
+        )}
         {/* Txt */}
-        <p className="text-3xl font-bold text-orangeColor md:text-4xl lg:text-6xl">
+        <p className="text-3xl font-bold text-orangeColor  md:text-4xl lg:text-6xl lg:max-w-xl lg:text-center">
           {txt}
         </p>
         {/* Right */}
+        {right && (
+          <img
+            src={right}
+            alt="headerImg"
+            className="object-contain hidden lg:inline-block lg:w-72 lg:h-7w-72 "
+          />
+        )}
       </div>
     </div>
   );

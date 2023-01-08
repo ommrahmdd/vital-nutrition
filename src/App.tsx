@@ -12,7 +12,7 @@ const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Partners = lazy(() => import("./pages/partners/Partners"));
 const News = lazy(() => import("./pages/news/News"));
-
+const Products = lazy(() => import("./pages/products/Products"));
 function App() {
   let { i18n } = useTranslation();
   document.body.dir = i18n.dir();
@@ -31,6 +31,9 @@ function App() {
             <Route path="/news">
               <Route index element={<News />} />
               <Route path=":id" element={<NewDetails />} />
+            </Route>
+            <Route path="/products">
+              <Route index element={<Products />} />
             </Route>
             <Route path="/" element={<Home />} />
           </Routes>
