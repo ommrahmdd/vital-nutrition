@@ -17,27 +17,10 @@ import {
 
 export default function Products() {
   const { t, i18n } = useTranslation();
-  const {
-    items,
-    handleUpdateProducts,
-    products,
-    // totalSize,
-    // handleUpdateTotalSize,
-    // pageSize,
-    // currentPage,
-    // paginationChange,
-  } = useProducts();
+  const { items, handleUpdateProducts, products } = useProducts();
 
   useEffect(() => {
-    // getNextProducts(1, pageSize)
-    //   .then((data) => {
-    //     handleUpdateProducts(data);
-    //     console.log(data);
-    //     return getTotalDocs();
-    //   })
-    //   .then((size) => {
-    //     handleUpdateTotalSize(size);
-    //   });
+    window.scrollTo(0, 0);
     getProducts().then((data) => {
       handleUpdateProducts(data);
     });
@@ -52,8 +35,8 @@ export default function Products() {
       />
       <Container>
         <div className="flex flex-col items-start gap-10 lg:flex-row ">
-          <div className="">
-            <p className="text-greenColor font-medium">
+          <div className="w-full lg:w-72">
+            <p className="text-greenColor font-medium md:text-xl lg:text-2xl">
               {t("productsPage.filterTitle")}
             </p>
             {/* Menu */}
@@ -105,17 +88,6 @@ export default function Products() {
                 ))}
           </div>
         </div>
-        {/* Pagination */}
-        {/* <div className="w-full flex justify-center my-8">
-          {products.products.length > 0 && totalSize! > 0 && (
-            <Pagination
-              current={currentPage}
-              total={totalSize}
-              pageSize={8}
-              onChange={paginationChange}
-            />
-          )}
-        </div> */}
       </Container>
     </div>
   );

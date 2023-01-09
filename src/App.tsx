@@ -19,7 +19,9 @@ function App() {
 
   return (
     <div
-      className={`${i18n.language === "ar" ? "font-cairo" : "font-poppins"} `}
+      className={`overflow-x-hidden ${
+        i18n.language === "ar" ? "font-cairo" : "font-poppins"
+      } `}
     >
       <Suspense fallback={<Loader />}>
         <Router>

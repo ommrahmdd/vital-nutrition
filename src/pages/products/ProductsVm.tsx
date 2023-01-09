@@ -1,30 +1,23 @@
 import React, { useState } from "react";
-import { Checkbox } from "antd";
+import { Checkbox, Radio } from "antd";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import type { MenuProps, SubMenuProps } from "antd";
 import { useTranslation } from "react-i18next";
 import { IProduct } from "../../models/IProduct";
-import { getNextProducts } from "../../services/products";
+import { filterByGender, getProducts } from "../../services/products";
+import { MenuItemGroupType } from "antd/es/menu/hooks/useItems";
+
 export function useProducts() {
   const { t } = useTranslation();
   const [products, setProducts] = useState<IProduct[]>([]);
-  // const [products, setProducts] = useState<{
-  //   products: IProduct[];
-  //   lastDoc: any;
-  // }>({
-  //   products: [],
-  //   lastDoc: "",
-  // });
+  let [filteredGender, setFilteredGender] = useState<string[]>([]);
 
-  // const [totalSize, setTotalSize] = useState<number>();
-  // const [currentPage, setCurrentPage] = useState<number>(1);
-  // const pageSize = 8;
   type MenuItem = Required<MenuProps>["items"][number];
   const getItem = (
     label: React.ReactNode,
     key: React.Key,
     expandIcon?: any,
-    children?: MenuItem[]
+    children?: MenuItem[] | MenuItem | MenuItemGroupType | any
   ): MenuItem => ({
     label,
     key,
@@ -34,7 +27,7 @@ export function useProducts() {
 
   const items: MenuProps["items"] = [
     getItem(
-      <p className="font-semibold">
+      <p className="font-semibold ">
         {t("productsPage.filtersTitle.byCategory")}
       </p>,
       "01",
@@ -66,10 +59,43 @@ export function useProducts() {
         t("productsPage.filters.byGender", {
           returnObjects: true,
         }) as Array<string>
-      ).map((item, index) =>
+      ).map((item: any, index) =>
         getItem(
-          <Checkbox className="w-full capitalize font-cairo">{item}</Checkbox>,
-          `${item}${index}`
+          <Checkbox
+            className="w-full capitalize font-cairo"
+            onChange={(e) => {
+              // first validate Check
+              if (e.target.checked) {
+                if (filteredGender.indexOf(item.value) === -1)
+                  setFilteredGender((prevState) => [...prevState, item.value]);
+              } else {
+                filteredGender.splice(filteredGender.indexOf(item.value), 1);
+                setFilteredGender(filteredGender);
+              }
+
+              // Second do filtering
+              if (
+                filteredGender.length === 0 ||
+                filteredGender.indexOf("all") !== -1
+              )
+                getProducts().then((data) => handleUpdateProducts(data));
+              else {
+                filteredGender.forEach((gender) => {
+                  filterByGender(gender).then((data: any) => {
+                    if (filteredGender.length === 0) {
+                      setProducts(data);
+                    } else {
+                      setProducts((prevState) => [...prevState, ...data]);
+                    }
+                    console.log(products);
+                  });
+                });
+              }
+            }}
+          >
+            {item.label}
+          </Checkbox>,
+          `${item.value}${index}`
         )
       )
     ),
@@ -77,28 +103,10 @@ export function useProducts() {
   const handleUpdateProducts = (data: any) => {
     setProducts(data);
   };
-  // const handleUpdateTotalSize = (num: number) => {
-  //   setTotalSize(num);
-  // };
-  // const paginationChange = (page: number) => {
-  //   setCurrentPage(page);
-  //   getNextProducts(
-  //     products?.products.length - 1,
-  //     pageSize,
-  //     products.lastDoc
-  //   ).then((data: any) => {
-  //     console.log(data);
-  //     setProducts(data);
-  //   });
-  // };
+
   return {
     items,
     products,
     handleUpdateProducts,
-    // totalSize,
-    // handleUpdateTotalSize,
-    // pageSize,
-    // currentPage,
-    // paginationChange,
   };
 }

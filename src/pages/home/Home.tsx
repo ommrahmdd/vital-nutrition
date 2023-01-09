@@ -49,7 +49,11 @@ export default function Home() {
               alt="thumbImg01"
               className="w-[30rem] h-[20rem] object-contain lg:w-[70rem] lg:h-[35rem]"
             />
-            <a href="https://www.youtube.com/embed/35VNTu9SUc8" target="_blank">
+            <a
+              href="https://www.youtube.com/embed/35VNTu9SUc8"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaPlay className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl z-20 text-greenColor lg:text-4xl cursor-pointer hover:opacity-40" />
             </a>
           </div>
@@ -224,7 +228,7 @@ export default function Home() {
             <div className="my-10 grid gap-8 grid-cols-1 lg:grid-cols-3">
               {_news.map((_new, index) => (
                 <Link
-                  to={_new._id!}
+                  to={`/news/${_new._id!}`}
                   className="transition-all duration-300 ease-in-out cursor-pointer hover:opacity-60 "
                   key={index}
                 >

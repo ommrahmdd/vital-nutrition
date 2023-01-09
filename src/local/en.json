@@ -187,7 +187,24 @@
     },
     "filters": {
       "byCategory": ["all", "bones", "collagen", "joint"],
-      "byGender": ["men", "women", "kids"]
+      "byGender": [
+        {
+          "label": "men",
+          "value": "men"
+        },
+        {
+          "label": "women",
+          "value": "women"
+        },
+        {
+          "label": "kids",
+          "value": "kids"
+        },
+        {
+          "label": "all",
+          "value": "all"
+        }
+      ]
     }
   }
 }

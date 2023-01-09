@@ -186,7 +186,24 @@
     },
     "filters": {
       "byCategory": ["الكل", "عظام", "الكولاجين", "مفصل"],
-      "byGender": ["رجال", "نساء", "اطفال"]
+      "byGender": [
+        {
+          "label": "رجال",
+          "value": "men"
+        },
+        {
+          "label": "نساء",
+          "value": "women"
+        },
+        {
+          "label": "اطفال",
+          "value": "kids"
+        },
+        {
+          "label": "الكــل",
+          "value": "all"
+        }
+      ]
     }
   }
 }

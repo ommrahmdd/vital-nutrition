@@ -5,6 +5,7 @@ import {
   orderBy,
   query,
   startAfter,
+  where,
 } from "firebase/firestore";
 import { db } from "./config";
 
@@ -21,7 +22,8 @@ export const getProducts = async () => {
   });
   return products;
 };
-// HANDLE: Pagination
+
+//Start HANDLE: Pagination
 export const getTotalDocs = async () => {
   let snapShot = await getDocs(productsCollection);
   return snapShot.docs.length;
@@ -64,4 +66,21 @@ export const getNextProducts = async (
     lastDoc: snapShot.docs[snapShot.docs.length - 1],
   };
 };
-// ---------------------
+// End Pagination ---------------------
+// Start HANDLE: filtering
+export const filterByGender = async (gender: string) => {
+  let q = query(
+    productsCollection,
+    where("en.types", "array-contains", gender)
+  );
+
+  let snapShot = await getDocs(q);
+  let products = await snapShot.docs.map((_doc) => {
+    return {
+      ..._doc.data(),
+      _id: _doc.id,
+    };
+  });
+  return products;
+};
+// End filtering ---------------------

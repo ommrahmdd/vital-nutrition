@@ -13,6 +13,7 @@
     "antd": "^5.0.7",
     "firebase": "^9.15.0",
     "formik": "^2.2.9",
+    "gsap": "^3.11.4",
     "i18next": "^22.4.6",
     "i18next-browser-languagedetector": "^7.0.1",
     "react": "^18.2.0",
