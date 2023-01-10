@@ -79,7 +79,7 @@ export default function Nav() {
                 else handleOpenMenu("right");
               }}
             >
-              <RiMenu4Fill className="text-greenColor transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md" />
+              <RiMenu4Fill className="text-greenColor transition-all duration-300 ease-in-out hover:-translate-y-1" />
             </button>
           </div>
           {/* STYLE: Menu */}
