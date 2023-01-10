@@ -6,6 +6,11 @@ import { Navigation } from "swiper";
 import Container from "../../components/UI/Container";
 import { getProductById } from "../../services/products";
 import { useProductDetails } from "./ProductDetailsVm";
+import img01 from "./../../assets/imgs/productDetails/img01.png";
+import img02 from "./../../assets/imgs/productDetails/img02.png";
+import img03 from "./../../assets/imgs/productDetails/img03.png";
+import img04 from "./../../assets/imgs/productDetails/img04.png";
+import img05 from "./../../assets/imgs/productDetails/img05.png";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,7 +20,7 @@ export default function ProductDetails() {
   const { productId } = useParams();
   const { handleUpdateProduct, product, activeIndex, handleUpdateActiveIndex } =
     useProductDetails();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
     getProductById(productId!).then((data: any) => {
@@ -28,7 +33,7 @@ export default function ProductDetails() {
         {product ? (
           <div className="grid gap-5 grid-cols-1 lg:grid-cols-2">
             {/*STYLE:  Images*/}
-            <div className="flex flex-col items-center lg:flex-row">
+            <div className="flex flex-col items-center justify-around  h-[70vh] lg:justify-start lg:h-[50vh] lg:flex-row">
               {/* All Images */}
               <div className="flex items-center justify-start gap-3 lg:flex-col">
                 {product.images.map((img, index) => (
@@ -53,7 +58,7 @@ export default function ProductDetails() {
                 spaceBetween={30}
                 modules={[Navigation]}
                 navigation={true}
-                className="w-60 h-[50vh]"
+                className="w-96 h-[60vh]"
                 dir="ltr"
                 onTransitionEnd={(e) => {
                   handleUpdateActiveIndex(e.activeIndex);
@@ -62,9 +67,9 @@ export default function ProductDetails() {
                 {product.images.map((img, index) => (
                   <SwiperSlide
                     key={index}
-                    className="flex items-center justify-center"
+                    className="flex items-center justify-center "
                   >
-                    <img src={img} alt="product" />
+                    <img src={img} alt="product" className="scale-75" />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -96,6 +101,55 @@ export default function ProductDetails() {
                     : product.ar.midTitle}
                 </p>
               </div>
+              {/* Details */}
+              <details open>
+                <summary className="cursor-pointer list-none font-semibold border-b border-b-greyColorLight border-opacity-25 pb-2 flex items-center justify-between">
+                  <span>{t("productDetails.details")}</span>
+                </summary>
+                <p className="py-3 leading-7">
+                  {i18n.language === "en"
+                    ? product.en.details
+                    : product.ar.details}
+                </p>
+              </details>
+              {/* Promises */}
+              <details open>
+                <summary className="cursor-pointer list-none font-semibold border-b border-b-greyColorLight border-opacity-25 pb-2 flex items-center justify-between">
+                  <span>{t("productDetails.promises")}</span>
+                </summary>
+                <div className="flex items-center flex-wrap py-5 gap-3">
+                  {[img01, img02, img03, img04, img05].map((img, index) => (
+                    <img
+                      src={img}
+                      alt="promise"
+                      className="w-20 h-20 object-contain"
+                      key={index}
+                    />
+                  ))}
+                </div>
+              </details>
+              {/* Directions */}
+              <details open>
+                <summary className="cursor-pointer list-none font-semibold border-b border-b-greyColorLight border-opacity-25 pb-2 flex items-center justify-between">
+                  <span>{t("productDetails.directions")}</span>
+                </summary>
+                <ul className="list-disc list-inside py-5">
+                  {i18n.language === "en"
+                    ? product.en.direction.map((_dir, index) => (
+                        <li key={index}>{_dir}</li>
+                      ))
+                    : product.ar.direction.map((_dir, index) => (
+                        <li key={index}>{_dir}</li>
+                      ))}
+                </ul>
+              </details>
+              {/* Storage */}
+              <details open>
+                <summary className="cursor-pointer list-none font-semibold border-b border-b-greyColorLight border-opacity-25 pb-2 flex items-center justify-between">
+                  <span>{t("productDetails.storage.title")}</span>
+                </summary>
+                <p className="py-5">{t("productDetails.storage.text")}</p>
+              </details>
             </div>
           </div>
         ) : (

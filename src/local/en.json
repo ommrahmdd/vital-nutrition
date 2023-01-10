@@ -206,5 +206,14 @@
         }
       ]
     }
+  },
+  "productDetails": {
+    "details": "More Details",
+    "promises": "Our Promises",
+    "directions": "Directions of use",
+    "storage": {
+      "title": "Storage conditions",
+      "text": "Store out of the reach of young children. Store in a dry and cool place below 25°C."
+    }
   }
 }

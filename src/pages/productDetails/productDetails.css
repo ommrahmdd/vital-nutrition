@@ -13,3 +13,9 @@
   color: white !important;
   font-size: 1rem !important;
 }
+.swiper-button-next {
+  right: 0;
+}
+.swiper-button-prev {
+  left: 0;
+}

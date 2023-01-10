@@ -26,6 +26,7 @@ export default function News() {
       handleUpdateNews(data);
     });
   }, []);
+
   return (
     <div>
       {/* Header */}
@@ -48,9 +49,9 @@ export default function News() {
                 720: {
                   slidesPerView: 4,
                 },
-                1080:{
-                  slidesPerView:4
-                }
+                1080: {
+                  slidesPerView: 4,
+                },
               }}
             >
               {i18n.language === "en"
@@ -88,7 +89,7 @@ export default function News() {
               <div className="grid gap-x-5 gap-y-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {news.map((_new, index) => (
                   <div
-                    className={`overflow-hidden ${
+                    className={`news__new overflow-hidden ${
                       index === 0 && "lg:col-span-3 "
                     }md:h-[15rem] lg:h-auto`}
                     key={_new._id}
