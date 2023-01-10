@@ -7,6 +7,7 @@ import "./i18next";
 import "./App.css";
 import Loader from "./components/UI/loader";
 import NewDetails from "./pages/newsDetails/NewDetails";
+import ProductDetails from "./pages/productDetails/ProductDetails";
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
@@ -36,6 +37,7 @@ function App() {
             </Route>
             <Route path="/products">
               <Route index element={<Products />} />
+              <Route path=":productId" element={<ProductDetails />} />
             </Route>
             <Route path="/" element={<Home />} />
           </Routes>

@@ -56,7 +56,7 @@ export default function Products() {
                     key={index}
                   >
                     <img
-                      src={product.images}
+                      src={product.images[0]}
                       alt="product"
                       className="w-3/4 h-44 object-contain  lg:h-72"
                     />

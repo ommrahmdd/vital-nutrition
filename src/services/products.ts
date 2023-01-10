@@ -1,5 +1,7 @@
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   orderBy,
@@ -84,3 +86,14 @@ export const filterByGender = async (gender: string) => {
   return products;
 };
 // End filtering ---------------------
+// HANDLE: Single Product
+export const getProductById = async (_id: string) => {
+  let docRef = doc(db, "products", _id);
+  {
+    let snapShot = await getDoc(docRef);
+    return {
+      ...snapShot.data(),
+      _id: snapShot.id,
+    };
+  }
+};
